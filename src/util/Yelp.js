@@ -17,8 +17,13 @@ search(term,location,sortBy) {
                         id: business.id,
                         imageSrc: business.image_url,
                         name:  business.name,
-                        address: business.address,
-                        city: business.city
+                        address: business.location.address1,
+                        city: business.location.city,
+                        state: business.location.state,
+                        zipCode: business.location.zipCode, 
+                        category: business.catergories[0].title,
+                        rating: business.rating,
+                        reviewCount : business.review_count
                     }
                 ));
             }
