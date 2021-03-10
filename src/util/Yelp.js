@@ -9,7 +9,7 @@ search(term,location,sortBy) {
             Authorization: `Bearer ${apiKey}`
          }
         }).then(response => {
-         response.json();
+         return response.json();
         }).then(jsonResponse => {
             if(jsonResponse.businesses) {
                 return jsonResponse.businesses.map(business => (
