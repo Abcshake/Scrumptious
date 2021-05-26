@@ -2,13 +2,12 @@ const apiKey = process.env.REACT_APP_apikey;
 const Yelp = {
 
 search(term,location,sortBy) {
-    return fetch(`https://api.yelp.com/v3/businesses/search?term=${term}&location=${location}&sort_by=${sortBy}`,
+    return fetch(`https://corsanywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=${term}&location=${location}&sort_by=${sortBy}`,
         {
         headers:     
          {
             Authorization: `Bearer ${apiKey}`
          },
-         mode: 'cors'
         }).then(response => {
          return response.json();
         }).then(jsonResponse => {
@@ -21,12 +20,14 @@ search(term,location,sortBy) {
                         address: business.location.address1,
                         city: business.location.city,
                         state: business.location.state,
-                        zipCode: business.location.zipCode, 
+                        zipCode: business.location.zip_code, 
                         category: business.categories[0].title,
                         rating: business.rating,
                         reviewCount : business.review_count
                     }
                 ));
+            } else {
+                return console.log('no response');
             }
         });
 }
