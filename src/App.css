@@ -14,6 +14,10 @@ input:focus {
 
 /* Reusable Component - Image Container */
 
+.BusinessList{
+  display: inline-block;
+}
+
 .image-container {
   display: flex;
   flex-direction: column;
